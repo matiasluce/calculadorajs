@@ -12,6 +12,9 @@ body{
     min-height: 100vh;
     background: #333;
 }
+body.light{
+    background: #f8f8f8;
+}
 
 .container{
     position: relative;
@@ -24,6 +27,13 @@ body{
     10px 10px 70px rgba(0,0,0,0.25),
     inset -5px -5px 15px rgba(0,0,0,0.5),
     inset 5px 5px 15px rgba(0,0,0,0.5);
+}
+body.light .container{
+    background: #fafafa;
+    box-shadow: 25px 25px 75px rgba(0,0,0,0.15), 
+    10px 10px 70px rgba(0,0,0,0.15),
+    inset -5px -5px 15px rgba(0,0,0,0.15),
+    inset 5px 5px 15px rgba(0,0,0,0.05);
 }
 
 .calculadora{
@@ -66,6 +76,13 @@ body{
     font-weight: 400;
     border-radius: 10px;
 }
+body.light .calculadora span{
+    background: linear-gradient(180deg,#fafafa,#f4f4f4);
+    box-shadow: inset -8px 0 8px rgba(0,0,0,0.15),
+    inset 0 -8px 8px rgba(0,0,0,0.15),
+    0 0 0 2px rgba(0,0,0,1),
+    10px 20px 25px rgba(0,0,0,0.25);
+}
 
 .calculadora span::before{
     content:'';
@@ -82,10 +99,22 @@ body{
     border-bottom: 1px solid #0004;
     border-top: 1px solid #0009;
 }
+body.light .calculadora span::before{
+    background: linear-gradient(90deg,#e6e6e6,#efefef);
+    box-shadow: -10px -10px 10px rgba(255,255,255,0.25),
+    10px 5px 10px rgba(0,0,0,0.15);
+    border-left: 1px solid #fff4;
+    border-bottom: 1px solid #fff4;
+    border-top: 1px solid #fff9;
+}
 
 .calculadora span:active{
     filter: brightness(1.5);
 }
+body.light span:active{
+    filter: brightness(0.9);
+}
+
 
 .calculadora span i{
     position: relative;
@@ -93,13 +122,21 @@ body{
     font-size: 1.5em;
     text-transform: uppercase;
 }
+body.light .calculadora span i{
+    color: #333;
+}
+body.light .calculadora span.clear i,
+body.light .calculadora span.equal i{
+    color:#fff;
+}
 
+body.light .calculadora .clear,
 .calculadora .clear{
     grid-column: span 2;
     width: 180px;
     background: #f00;
 }
-
+body.light .calculadora .clear::before,
 .calculadora .clear::before{
     background: linear-gradient(90deg,#d20000,#ffffff5c);
     border-left: 1px solid #fff4;
@@ -112,13 +149,57 @@ body{
     height: 180px;
 }
 
+body.light .calculadora .equal,
 .calculadora .equal{
     background: #2196f3;
 }
 
+body.light .calculadora .equal::before,
 .calculadora .equal::before{
     background: linear-gradient(90deg,#1479c9,#ffffff5c);
     border-left: 1px solid #fff4;
     border-bottom: 1px solid #fff4;
     border-top: 1px solid #fff4;
+}
+
+.btn{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #333;
+    font-size: 1.5em;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.25),
+    5px 5px 30px rgba(0,0,0,0.25),
+    inset -2px -2px 5px rgba(0,0,0,0.25),
+    inset 2px 2px 5px rgba(0,0,0,0.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 10px;
+}
+body.light .btn{
+    background: #fafafa;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.1),
+    5px 5px 30px rgba(0,0,0,0.05),
+    inset -2px -2px 5px rgba(0,0,0,0.1),
+    inset 2px 2px 5px rgba(0,0,0,0.05);
+}
+
+.btn strong{
+    display: none;
+}
+
+.btn strong:nth-child(1){
+    display: block;
+}
+
+body.light .btn strong:nth-child(1){
+    display: none;
+}
+
+body.light .btn strong:nth-child(2){
+    display: block;
 }
